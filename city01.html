@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <select name="province" id="province" class='province' msgEmpty="请选择省份">
+        <option >请选择</option>
+        <option value="jiangsu" >江苏省</option>
+        <option value="zhejiang">浙江省</option>
+    </select>
+
+    <select name="city" id="city" class='city' msgEmpty="请选择城市">
+
+    </select>
+
+    <script>
+        $(function () {
+            $("#province").change(function () {
+                $("#city").empty();
+                let proval=this.value;
+                let proList;
+                let provinceUrl=" https://jiannan-miao.github.io/web-demo01/data/province.json";
+                let cityUrl="https://jiannan-miao.github.io/web-demo01/data/city1.json";
+                $.ajax({
+                    url:provinceUrl,
+                    method:"GET",
+                    responseType:"json",
+                    success:function (response) {
+                         proList=response;
+                    }
+                });
+
+                $.ajax({
+                    url:cityUrl,
+                    method:"GET",
+                    responseType:"json",
+                    success: function (response1) {
+                        let cityList=response1;
+                        for(let i=0;i<proList.length;i++){
+                            if(proList[i].id==proval){
+                                for(let j=0;j<cityList.length;j++){
+                                    if(cityList[j].povinceId==proList[i].id){
+                                        let cityVal=cityList[j].name;
+                                        let $opEle=$("<option></option>");
+                                        $opEle.append(cityVal);
+                                        $opEle.appendTo($("#city"));
+                                    }
+
+                                }
+                            }
+                        }
+
+                    }
+
+
+
+                })
+            })
+        })
+    </script>
+</body>
+</html>
