@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shopping</title>
+    <style>
+        li {
+            margin-bottom: 10px;
+        }
+        li button {
+            font-size: 8px;
+            margin-left: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Shopping List</h1>
+    <div>
+        <label for="item">Enter a new item</label>
+        <input type="text" name="item" id="item">
+        <button id="add">add item</button>
+        <ul>
+
+        </ul>
+    </div>
+    <script>
+        let ulEle=document.querySelector('ul');
+        let liEle;
+        let itemVal;
+        document.querySelector('button').addEventListener('click',addItems);
+
+        /*一键清空*/
+        let delAllEle= document.createElement('button');
+        let delAllVal=document.createTextNode('deleteAll');
+        delAllEle.appendChild(delAllVal);
+        ulEle.appendChild(delAllEle);
+        delAllEle.addEventListener('click',deleteAllItem);
+
+
+        function  addItems() {
+             itemVal=document.querySelector('input').value;
+             liEle=document.createElement('li');
+            let liVal=document.createTextNode(itemVal);
+            if(itemVal==''){
+                alert("你输入的内容为空");
+            }else{
+                liEle.appendChild(liVal);
+                ulEle.appendChild(liEle);
+                /*创建删除按钮*/
+                let delEle= document.createElement('button');
+                let delVal=document.createTextNode('delete');
+                delEle.appendChild(delVal);
+                ulEle.appendChild(delEle);
+                delEle.addEventListener('click',deleteItem);
+            }
+
+
+        }
+        function deleteItem() {
+            ulEle.removeChild(liEle);
+        }
+        function deleteAllItem() {
+            let liAll= ulEle.querySelectorAll('li');
+            let buAll= ulEle.querySelectorAll('button');
+            for(let i=0;i<liAll.length;i++){
+                ulEle.removeChild(liAll[i]);
+                ulEle.removeChild(buAll[i]);
+            }
+        }
+    </script>
+</body>
+</html>

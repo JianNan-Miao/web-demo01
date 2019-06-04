@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table</title>
+    <style>
+        #add{
+            background-color: aqua;
+            border-radius: 10px;
+        }
+        table{
+            width: 500px;
+            border: 1px solid red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <span>
+            ID <input type="text" id="id">  Name <input type="text" id="name">
+        </span>
+    </div>
+    <div>
+        <span>
+            Salary <input type="text"id="salary">  Job <input type="text" id="job">
+        </span>
+    </div>
+    <div>
+        <input type="button" value="add" id="add">
+    </div>
+    <hr>
+    <div>
+        <table>
+
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Job</th>
+                    <th>Delete</th>
+                </tr>
+                <!--<tr>-->
+                    <!--<td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>
+                        <img src="imgs/u26.svg" id="img1" >
+                    </td>-->
+                <!--</tr>-->
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+       /* let inVal=document.querySelector('#add');
+        inVal.addEventListener('click',additem);
+        function additem() {
+            let idVal=document.querySelector('#id').value;
+            let nameVal=document.querySelector('#name').value;
+            let salaryVal=document.querySelector('#salary').value;
+            let jobVal=document.querySelector('#job').value;
+
+            let trEle=document.createElement('tr');
+            /!*将id的值添加到tr里  <td>idVal</td>*!/
+            let tdEle1=document.createElement('td');
+            tdEle1.innerHTML=idVal;
+            trEle.appendChild(tdEle1);
+
+
+            let tdEle2=document.createElement('td');
+            tdEle2.innerHTML=nameVal;
+            trEle.appendChild(tdEle2);
+
+            let tdEle3=document.createElement('td');
+            tdEle3.innerHTML=salaryVal;
+            trEle.appendChild(tdEle3);
+
+            let tdEle4=document.createElement('td');
+            tdEle4.innerHTML=jobVal;
+            trEle.appendChild(tdEle4);
+
+            let tdEle5=document.createElement('td');
+             let imgEle= document.createElement('img');
+              imgEle.src="imgs/u26.svg";
+              tdEle5.appendChild(imgEle);
+            trEle.appendChild(tdEle5);
+            document.querySelector('tbody').appendChild(trEle);
+
+            imgEle.addEventListener('click',function () {
+                document.querySelector('tbody').removeChild(trEle);
+            });
+        }*/
+
+       $(function () {
+           $("#add").click(function () {
+              let $tr=$("<tr></tr>");
+               $tr.appendTo($("tbody"));
+               let $td=$("<td></td>");
+               let $img=$("<img src='imgs/u26.svg'>");
+               $img.click(function () {
+                   $tr.remove();
+               });
+               $img.appendTo($td);
+               $tr.append("<td>"+$("#id").val()+"</td>")
+                   .append("<td>" + $("#name").val() + "</td>")
+                   .append("<td>" + $("#salary").val() + "</td>")
+                   .append("<td>" + $("#job").val() + "</td>").append($td);
+
+               $("#id").val("");
+               $("#name").val("");
+               $("#salary").val("");
+               $("#job").val("");
+
+               $("#id").focus();
+           });
+       })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        table {
+            width: 500px;
+            border: 1px solid gray;
+            margin-top: 30px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            line-height: 35px;
+            text-align: center;
+            border: 1px solid gray;
+        }
+
+        a {
+            text-decoration: none;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+编号：<input type="text" id="pt1">
+姓名：<input type="text" id="pt2">
+年龄：<input type="text" name="" id="pt3">
+住址：<input type="text" id="pt4">
+<button id="btn">添加<tton>
+    <script type="text/javascript">
+        //得到输入框id
+        var ipt1 = document.getElementById('pt1');
+        var ipt2 = document.getElementById('pt2');
+        var ipt3 = document.getElementById('pt3');
+        var ipt4 = document.getElementById('pt4');
+        var bt1 = document.getElementById('btn');
+        //创建表格
+        var tab = document.createElement('table');
+        //创建表头行
+        var tr = document.createElement('tr');
+        //将行插入表格
+        tab.appendChild(tr);
+        //创建表头列
+        var th1 = document.createElement('th');
+        var th2 = document.createElement('th');
+        var th3 = document.createElement('th');
+        var th4 = document.createElement('th');
+        //输入表头内容
+        th1.innerHTML = "编号";
+        th2.innerHTML = "姓名";
+        th3.innerHTML = "年龄";
+        th4.innerHTML = "住址";
+        tr.appendChild(th1);
+        tr.appendChild(th2);
+        tr.appendChild(th3);
+        tr.appendChild(th4);
+        //点击事件
+        bt1.onclick = function(argument) {
+            //若有输入框为空，则弹出警告框
+            if (ipt1.value == '' || ipt2.value == '' || ipt3.value == '' || ipt4.value == '') {
+                alert('编号, 姓名, 年龄, 住址均不能为空！');
+                return;
+            }
+            gettd(ipt1.value, ipt2.value, ipt3.value, ipt4.value);
+            document.body.appendChild(tab);
+            //输出内容后清空输入框
+            ipt1.value = '';
+            ipt2.value = '';
+            ipt3.value = '';
+            ipt4.value = '';
+        }
+        //创建列
+        function gettd(num, name, age, addr) {
+            //创建行
+            var tr1 = document.createElement('tr');
+            //创建列
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+            // 在表格中输入内容，用参数代替
+            td1.innerHTML = num;
+            td2.innerHTML = name;
+            td3.innerHTML = age;
+            td4.innerHTML = addr;
+            tr1.appendChild(td1);
+            tr1.appendChild(td2);
+            tr1.appendChild(td3);
+            tr1.appendChild(td4);
+            tab.appendChild(tr1);
+            //返回结果
+            return tr1;
+        }
+    </script>
+</body>
+
+<html>

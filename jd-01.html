@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东</title>
+</head>
+<style>
+    #top{
+        padding-left: 800px;
+        color: grey;
+    }
+    #big{
+        border: 1px solid red;
+        width: 1300px;
+        height: 850px;
+        margin: 0 auto;
+    }
+    #left{
+        width: 200px;
+        height: 620px;
+        border: 1px solid black;
+        float: left;
+    }
+    #right{
+        width: 1096px;
+        height: 620px;
+        border: 1px solid black;
+        float: left;
+    }
+     li{
+        line-height: 30px;
+
+    }
+     #clear{
+         clear: both;
+     }
+
+    #search{
+        display: inline-block;
+        width: 350px;
+        margin: 20px 0px 0px 100px;
+    }
+
+    #car{
+        margin-left: 20px;
+        background-color: white;
+        color: red;
+        text-align: center;
+    }
+    #text{
+        color: grey;
+        width: 350px;
+        margin: 10px 100px;
+    }
+    #buttom{
+        width: 1300px;
+        height: 228px;
+        border: 1px solid green;
+    }
+    #num1 {
+
+        width: 300px;
+        height: 200px;
+        border: 1px solid red;
+        float: left;
+    }
+    #num2 {
+        width: 300px;
+        height: 200px;
+        border: 1px solid red;
+        float: left;
+    }
+    #num3 {
+        width: 300px;
+        height: 200px;
+        border: 1px solid red;
+        float: left;
+    }
+    #num4{
+        width: 392px;
+        height: 200px;
+        border: 1px solid red;
+        float: left;
+    }
+</style>
+<script>
+   function init() {
+       window.setInterval("changeImg()",3000);
+   }
+   var i=0;
+   function changeImg() {
+       i++;
+       document.getElementById("img1").src="imgs/"+i+".png";
+       if(i==3){
+           i=0;
+       }
+   }
+
+   function changeColor() {
+       document.getElementById("top").style.color="red";
+   }
+   function changeColor1() {
+       document.getElementById("top").style.color="gray";
+   }
+</script>
+<body>
+   <span onmouseover="changeColor()" onmouseout="changeColor1()" id="top">
+       登录 免费注册|我的订单|我的京东|京东会员|企业采购|客户服务
+   </span>
+    <div id="big">
+        <div id="left">
+            <ul style="list-style-type: none">
+                <a href="#"><li>家用电器</li></a>
+                <a href="#"><li>手机/运营商</li></a>
+                <a href="#"><li>数码/办公</li></a>
+                <a href="#"><li>家用电器</li></a>
+                <a href="#"><li>家居家具</li></a>
+                <a href="#"><li>家居家具</li></a>
+                <a href="#"><li>家居家具</li></a>
+                <a href="#"><li>家居家具</li></a>
+                <a href="#"><li>家居家具</li></a>
+                <a href="#"><li>家居家具</li></a>
+                <a href="#"><li>家居家具</li></a>
+            </ul>
+        </div>
+        <div id="right">
+           <span >
+               <input type="text" id ="search">
+               <input type="text"value="我的购物车" id="car"><br>
+              <ps id="text">乐园畅游日&nbsp;618神券&nbsp;时尚秒杀&nbsp;美妆618&nbsp;家电预售&nbsp;</ps>
+           </span>
+            <img id="img1" onload="init()" src="imgs/1.png" width="100%" height="550px" style="padding-top: 10px">
+        </div>
+        <div id="clear">
+        <div id="buttom">
+           <div id="num1">
+               <ul style="list-style-type: none">
+                   <li>购物指南</li>
+                   <li>购物流程</li>
+                   <li>会员介绍</li>
+                   <li>生活旅行</li>
+                   <li>常见问题</li>
+                   <li>购物导购</li>
+               </ul>
+           </div>
+            <div id="num2">
+                <ul style="list-style-type: none">
+                    <li>购物指南</li>
+                    <li>购物流程</li>
+                    <li>会员介绍</li>
+                    <li>生活旅行</li>
+                    <li>常见问题</li>
+                    <li>购物导购</li>
+                </ul>
+            </div>
+            <div id="num3">
+                <ul style="list-style-type: none">
+                    <li>购物指南</li>
+                    <li>购物流程</li>
+                    <li>会员介绍</li>
+                    <li>生活旅行</li>
+                    <li>常见问题</li>
+                    <li>购物导购</li>
+                </ul>
+            </div>
+            <div id="num4">
+                <p>京东自营覆盖区</p><br>
+                <p>京东已经向全国2661个县提供自营配送服务，支持货到付款</p>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

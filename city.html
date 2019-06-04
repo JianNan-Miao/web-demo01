@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+
+    <select name="province" id="province" class='province' msgEmpty="请选择省份">
+        <option >请选择</option>
+        <option value="0" >湖北省</option>
+        <option value="1">湖南省</option>
+    </select>
+
+    <select name="city" id="city" class='city' msgEmpty="请选择城市">
+
+    </select>
+
+    <script>
+        $(function () {
+            $("#province").change(function () {
+                $("#city").empty();
+                let val=this.value;
+                let resquestUrl="https://jiannan-miao.github.io/mybatis-01/data/city.json";
+                $.ajax({
+                    url:resquestUrl,
+                    method:"GET",
+                    responseType:"json",
+                    success:function (response) {
+                        for(let i=0;i<response.length;i++){
+                            /*alert(response[i].name+":"+response[i].child);*/
+                            if (i==val){
+                                for(let j=0;j<response[i].child.length;j++){
+                                    let cityVal=response[i].child[j].name;
+                                    let $opEle=$("<option></option>");
+                                    $opEle.append(cityVal);
+                                    $opEle.appendTo("#city");
+
+                                }
+                            }
+                        }
+                    }
+                });
+            })
+        })
+    </script>
+
+</body>
+</html>
