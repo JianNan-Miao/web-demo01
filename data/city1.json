@@ -1,0 +1,17 @@
+[{
+  "name": "南京市",
+  "id": "nanjin",
+  "povinceId": "jiangsu"
+},{
+  "name": "苏州市",
+  "id": "suzhou",
+  "povinceId": "jiangsu"
+},{
+  "name": "杭州市",
+  "id": "hangzhou",
+  "povinceId": "zhejiang"
+},{
+  "name": "宁波市",
+  "id": "ningbo",
+  "povinceId": "zhejiang"
+}]
